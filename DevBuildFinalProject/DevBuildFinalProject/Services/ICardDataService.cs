@@ -8,6 +8,7 @@ namespace DevBuildFinalProject.Services
     public interface ICardDataService
     {
         //return all cards
+        public IEnumerable<Card> GetAllCards();
 
         //return deck
 
