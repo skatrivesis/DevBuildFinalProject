@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using DevBuildFinalProject.Services;
 
 namespace DevBuildFinalProject
 {
@@ -26,6 +27,9 @@ namespace DevBuildFinalProject
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+            services.AddTransient<ICardDataService, CardDataService>();
+            services.AddTransient<ICharacterDataService, CharacterDataService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -20,44 +20,39 @@ namespace DevBuildFinalProject.Services
 
         public IEnumerable<Card> GetAllCards()
         {
-            IEnumerable<Card> result;
+            SqlConnection conn = new SqlConnection(connString);
 
-            using (var conn = new SqlConnection(connString))
-            {
-                string command = "select * from Cards";
+            string command = "SELECT * FROM Card";
 
-                result = conn.Query<Card>(command, new { });
-            }
+            IEnumerable<Card> result = conn.Query<Card>(command);
+
+            conn.Close();
 
             return result;
         }
 
         public IEnumerable<Card> GetAllCardsOwnedById(int id)
         {
-            IEnumerable<Card> result;
+            SqlConnection conn = new SqlConnection(connString);
 
-            using (var conn = new SqlConnection(connString))
-            {
-                string command = "select Character.CharName, Card.* from Deck ";
-                command += "left join Card on Card.Id = Deck.CardId	left join ";
-                command += "Character on Character.Id = Deck.CharId where CharId = @val";
+            string command = "select Character.CharName, Card.* from Deck ";
+            command += "left join Card on Card.Id = Deck.CardId	left join ";
+            command += "Character on Character.Id = Deck.CharId where CharId = @val";
 
-                result = conn.Query<Card>(command, new { val = id });
-            }
+            IEnumerable<Card> result = conn.Query<Card>(command, new { val = id });
+
+            conn.Close();
 
             return result;
         }
 
         public Card ReturnCardById(int id)
         {
-            Card result;
+            SqlConnection conn = new SqlConnection(connString);
 
-            using (var conn = new SqlConnection(connString))
-            {
-                string command = "select * from card where id = @val";
+            string command = "select * from card where id = @val";
 
-                result = conn.QueryFirstOrDefault<Card>(command, new { val = id });
-            }
+            Card result = conn.QueryFirstOrDefault<Card>(command, new { val = id });
 
             return result;
         }
