@@ -2,16 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DevBuildFinalProject.Models;
 
 namespace DevBuildFinalProject.Services
 {
     public interface ICardDataService
     {
-        //return all cards
         public IEnumerable<Card> GetAllCards();
-
-        //return deck
-
-        //return card by id
+        public IEnumerable<Card> GetAllCardsOwnedById(int id);
+        public Card ReturnCardById(int id);
     }
 }
