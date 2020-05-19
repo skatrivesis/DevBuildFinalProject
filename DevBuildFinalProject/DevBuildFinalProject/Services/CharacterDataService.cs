@@ -20,10 +20,10 @@ namespace DevBuildFinalProject.Services
 
         public int AddPlayer(Character character)
         {
-            character.HP = 20;
-            character.AP = 3;
-            character.Progress = 0;
-            character.Player = true;
+            //character.HP = 20;
+            //character.AP = 3;
+            //character.Progress = 0;
+            //character.Player = true;
 
             SqlConnection conn = new SqlConnection(connString);
 
