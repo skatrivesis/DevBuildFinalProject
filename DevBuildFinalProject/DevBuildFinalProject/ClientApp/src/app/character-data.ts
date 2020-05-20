@@ -10,4 +10,7 @@ export class CharacterDataService {
   addPlayer(newPlayer: NewPlayer) {
     return this.http.post<NewPlayer>('/api/character/new', newPlayer);
   }
+  getCurrentUser() {
+    return this.http.get('/api/character/currentuser');
+  }
 }

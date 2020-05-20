@@ -27,12 +27,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\card-data.ts" />
     <None Remove="ClientApp\src\app\character-data.ts" />
     <None Remove="ClientApp\src\app\Interfaces\Card.ts" />
     <None Remove="ClientApp\src\app\Interfaces\NewPlayer.ts" />
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\card-data.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\character-data.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\Interfaces\Card.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\Interfaces\NewPlayer.ts" />

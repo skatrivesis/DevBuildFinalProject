@@ -30,11 +30,13 @@ namespace DevBuildFinalProject.Services
 
             string command = "insert into Character (CharName, Hp, Ap, Progress, Player) ";
             command += "values (@CharName, @HP, @AP, @Progress, @Player) ";
-            command += "select scope_identity()";
-
+            command += "select scope_identity()"; 
+            
             int id = conn.ExecuteScalar<int>(command, character);
 
             int result = AssignStarterDeck(id);
+
+            result = AssignCurrentUser(id);
 
             conn.Close();
 
@@ -63,6 +65,28 @@ namespace DevBuildFinalProject.Services
             int result = conn.Execute(command, new { id = id });
 
             conn.Close();
+
+            return result;
+        }
+
+        public int GetCurrentUser()
+        {
+            SqlConnection conn = new SqlConnection(connString);
+
+            string command = "select MAX(UserID) from currentuser";
+
+            int result = conn.QueryFirstOrDefault<int>(command);
+
+            return result;
+        }
+
+        public int AssignCurrentUser(int id)
+        {
+            SqlConnection conn = new SqlConnection(connString);
+
+            string command = "insert into CurrentUser (UserId) Values (@id)";
+
+            int result = conn.Execute(command, new { id = id });
 
             return result;
         }

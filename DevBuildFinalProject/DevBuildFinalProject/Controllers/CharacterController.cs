@@ -26,6 +26,12 @@ namespace DevBuildFinalProject.Controllers
             return characterData.GetAllCharacters();
         }
 
+        [HttpGet("currentuser")]
+        public int GetCurrentUser()
+        {
+            return characterData.GetCurrentUser();
+        }
+
         [HttpPost("new")]
         public object AddPlayer(Character character)
         {

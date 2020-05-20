@@ -29,7 +29,7 @@ export class AddPlayerComponent {
     }
 
     this.characterData.addPlayer(newPlayer).subscribe();
-    this.router.navigate(['']);
+    this.router.navigate(['playermenu']);
   }
 
 }
