@@ -10,6 +10,7 @@ namespace DevBuildFinalProject.Services
     {
         public int AddPlayer(Character character);
         public IEnumerable<Character>GetAllCharacters();
+        public int AssignStarterDeck(int id);
         //remove character
         //edit character
     }

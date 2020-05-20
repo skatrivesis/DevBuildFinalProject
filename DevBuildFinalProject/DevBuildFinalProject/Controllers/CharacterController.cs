@@ -26,12 +26,12 @@ namespace DevBuildFinalProject.Controllers
             return characterData.GetAllCharacters();
         }
 
-        [HttpPost]
+        [HttpPost("new")]
         public object AddPlayer(Character character)
         {
-            int result = characterData.AddPlayer(character);
+            int characterResult = characterData.AddPlayer(character);
 
-            if (result == 1)
+            if (characterResult == 1)
             {
                 return new { Success = true, Message = "Character Added" };
             }

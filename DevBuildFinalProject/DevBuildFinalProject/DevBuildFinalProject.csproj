@@ -29,13 +29,13 @@
   <ItemGroup>
     <None Remove="ClientApp\src\app\character-data.ts" />
     <None Remove="ClientApp\src\app\Interfaces\Card.ts" />
-    <None Remove="ClientApp\src\app\Interfaces\Character.ts" />
+    <None Remove="ClientApp\src\app\Interfaces\NewPlayer.ts" />
   </ItemGroup>
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\character-data.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\Interfaces\Card.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\Interfaces\Character.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\Interfaces\NewPlayer.ts" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

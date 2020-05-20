@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CharacterDataService } from '../character-data';
-import { Character } from '../Interfaces/Character';
+import { NewPlayer } from '../Interfaces/NewPlayer';
 import { ActivatedRoute, Router } from '@angular/router'; //what do you do?
 
 
@@ -23,11 +23,8 @@ export class AddPlayerComponent {
       return;
     }
 
-    let newPlayer: Character = {
+    let newPlayer: NewPlayer = {
       CharName: this.charName,
-      HP: 20,
-      AP: 3,
-      Progress: 0,
       Player: true
     }
 
