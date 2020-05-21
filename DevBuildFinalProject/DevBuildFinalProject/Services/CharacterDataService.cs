@@ -69,13 +69,17 @@ namespace DevBuildFinalProject.Services
             return result;
         }
 
-        public int GetCurrentUser()
+        public Character GetCurrentUser()
         {
             SqlConnection conn = new SqlConnection(connString);
 
             string command = "select MAX(UserID) from currentuser";
 
-            int result = conn.QueryFirstOrDefault<int>(command);
+            int id = conn.QueryFirstOrDefault<int>(command);
+
+            command = "select * from character where id = @id";
+
+            Character result = conn.QueryFirstOrDefault<Character>(command, new { id = id });
 
             return result;
         }
@@ -87,6 +91,28 @@ namespace DevBuildFinalProject.Services
             string command = "insert into CurrentUser (UserId) Values (@id)";
 
             int result = conn.Execute(command, new { id = id });
+
+            return result;
+        }
+
+        public Character GetEnemyByProgress(int progress)
+        {
+            SqlConnection conn = new SqlConnection(connString);
+
+            string command = "select * from character where progress = @progress and player = 0";
+
+            Character result = conn.QueryFirstOrDefault<Character>(command, new { progress = progress });
+
+            return result;
+        }
+
+        public int UpdateCharacterHelth(Character character)
+        {
+            SqlConnection conn = new SqlConnection(connString);
+
+            string command = "update character set hp = @hp where id = @id";
+
+            int result = conn.Execute(command, character);
 
             return result;
         }

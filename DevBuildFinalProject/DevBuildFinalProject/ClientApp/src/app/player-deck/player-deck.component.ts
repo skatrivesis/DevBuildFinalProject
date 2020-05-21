@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { CardDataService } from '../card-data';
 import { Card } from '../Interfaces/Card';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Character } from '../Interfaces/character';
 
 @Component({
   selector: 'app-player-deck',
@@ -11,24 +12,40 @@ import { ActivatedRoute, Router } from '@angular/router';
 /** player-deck component*/
 export class PlayerDeckComponent {
 
-  userId: number;
+  @Input() player: Character;
   cards: Card[];
 
   /** player-deck ctor */
   constructor(private cardData: CardDataService, private route: ActivatedRoute, private router: Router) { }
 
+  //ngOnChanges() {
+  //  console.log("you alive?");
+
+  //  this.cardData.getAllCardsOwnedById(this.player.Id).subscribe(
+  //    (data: Card[]) => {
+  //      this.cards = data;
+  //    },
+  //    error => console.error(error)
+  //  );
+  //}
+
   ngOnInit() {
-
-    this.route.params.subscribe(params => {
-      this.userId = +params['userId'];
-    });
-
-    this.cardData.getAllCardsOwnedById(this.userId).subscribe(
+    this.cardData.getAllCardsOwnedById(this.player.Id).subscribe(
       (data: Card[]) => {
         this.cards = data;
-        console.log(this.cards);
       },
       error => console.error(error)
     );
+    //this.ngOnChanges();
+    //this.route.params.subscribe(params => {
+    //  this.player.Id = +params['player'];
+    //});
+    //if (!this.player === null) {
+    //  console.log(this.player.Id);
+    //}
+    //else {
+    //  console.log("Nada");
+    //}
+
   }
 }

@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { AddPlayerComponent } from './add-player/add-player.component';
 import { PlayerMenuComponent } from './player-menu/player-menu.component';
 import { PlayerDeckComponent } from './player-deck/player-deck.component';
+import { BattlefieldPlayerComponent } from './battlefield-player/battlefield-player.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { PlayerDeckComponent } from './player-deck/player-deck.component';
     HomeComponent,
     AddPlayerComponent,
     PlayerMenuComponent,
-    PlayerDeckComponent
+    PlayerDeckComponent,
+    BattlefieldPlayerComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -28,7 +30,8 @@ import { PlayerDeckComponent } from './player-deck/player-deck.component';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'addplayer', component: AddPlayerComponent, pathMatch: 'full' },
       { path: 'playermenu', component: PlayerMenuComponent, pathMatch: 'full' },
-      { path: 'deck/:userId', component: PlayerDeckComponent }
+      { path: 'deck', component: PlayerDeckComponent },
+      { path: 'battlefield-player/:userId', component: BattlefieldPlayerComponent }
     ])
   ],
   providers: [],

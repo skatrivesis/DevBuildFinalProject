@@ -11,8 +11,10 @@ namespace DevBuildFinalProject.Services
         public int AddPlayer(Character character);
         public IEnumerable<Character>GetAllCharacters();
         public int AssignStarterDeck(int id);
-        public int GetCurrentUser();
+        public Character GetCurrentUser();
         public int AssignCurrentUser(int id);
+        public Character GetEnemyByProgress(int progress);
+        public int UpdateCharacterHelth(Character character);
         //remove character
         //edit character
     }

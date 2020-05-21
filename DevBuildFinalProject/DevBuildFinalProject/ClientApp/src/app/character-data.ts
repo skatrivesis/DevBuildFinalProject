@@ -13,4 +13,7 @@ export class CharacterDataService {
   getCurrentUser() {
     return this.http.get('/api/character/currentuser');
   }
+  getEnemyByProgress(progress: number) {
+    return this.http.get(`/api/character/enemy/${progress}`);
+  }
 }

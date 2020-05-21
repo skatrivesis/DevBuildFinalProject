@@ -3,9 +3,11 @@
     <th>Player Menu</th><!--put current players name here-->
   </tr>
   <tr>
-    <a href="/deck/{{userId}}"  (ngModel)="userId" >Deck Menu</a>
+    <a href="/deck"  (player)="player" >Deck Menu</a>
   </tr>
   <tr>
-    <a href=""
+    <a href="/battlefield-player/{{player.id}}" (ngModel)="player" >FIGHT!</a>
   </tr>
 </table>
+
+<app-player-deck [player]="player" ></app-player-deck>

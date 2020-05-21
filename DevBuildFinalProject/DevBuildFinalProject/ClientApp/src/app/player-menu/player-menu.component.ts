@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { CharacterDataService } from '../character-data';
+import { Character } from '../Interfaces/character';
 
 @Component({
   selector: 'app-player-menu',
@@ -9,7 +10,7 @@ import { CharacterDataService } from '../character-data';
 /** player-menu component*/
 export class PlayerMenuComponent {
 
-  userId: number;
+  player: Character;
 
   /** player-menu ctor */
   constructor(private characterData: CharacterDataService) { }
@@ -17,9 +18,9 @@ export class PlayerMenuComponent {
 
   ngOnInit() {
     this.characterData.getCurrentUser().subscribe(
-      (data: number) => {
-        this.userId = data;
-        console.log(this.userId);
+      (data: Character) => {
+        this.player = data;
+        console.log(this.player);
       },
       error => console.error(error)
     );

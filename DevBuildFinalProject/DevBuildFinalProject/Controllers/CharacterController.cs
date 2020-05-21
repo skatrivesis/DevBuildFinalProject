@@ -27,7 +27,7 @@ namespace DevBuildFinalProject.Controllers
         }
 
         [HttpGet("currentuser")]
-        public int GetCurrentUser()
+        public Character GetCurrentUser()
         {
             return characterData.GetCurrentUser();
         }
@@ -45,6 +45,12 @@ namespace DevBuildFinalProject.Controllers
             {
                 return new { Success = false, Message = "There was an error, Character was not added" };
             }
+        }
+
+        [HttpGet("enemy/{progress}")]
+        public Character GetEnemyByProgress(int progress)
+        {
+            return characterData.GetEnemyByProgress(progress);
         }
 
     }
